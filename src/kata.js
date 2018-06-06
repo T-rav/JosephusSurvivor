@@ -22,7 +22,7 @@ function SurvivorGame() {
           let difference = targetIndex - circle.length;
           targetIndex = difference;
           while(targetIndex >= circle.length){
-            targetIndex -= difference;
+            targetIndex = targetIndex - circle.length;
           }
         }
 
