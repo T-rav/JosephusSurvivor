@@ -12,11 +12,25 @@ function SurvivorGame() {
   return{
     play:function(numberOfPeople, stepSize){
       let circle = buildCircle(numberOfPeople);
-      let stepsTaken = 0;
-      while(circle.length > 1){
-        circle.splice(stepsTaken, 1);
-        stepsTaken += stepSize - 1;
+      let stepsTaken = 1;
+      let targetIndex = 0;
+
+      while(stepsTaken < numberOfPeople){
+        targetIndex+=stepSize-1;
+
+        if(targetIndex >= circle.length){
+          let difference = targetIndex - circle.length;
+          targetIndex = difference;
+          while(targetIndex >= circle.length){
+            targetIndex -= difference;
+          }
+        }
+
+        circle.splice(targetIndex, 1);
+
+        stepsTaken++;
       }
+
       return circle[0];
     }
   }
