@@ -21,8 +21,8 @@ function SurvivorGame() {
         if(targetIndex >= circle.length){
           let difference = targetIndex - circle.length;
           targetIndex = difference;
-          while(targetIndex >= circle.length){
-            targetIndex = targetIndex - circle.length;
+          if(difference == circle.length){
+            targetIndex = 0;
           }
         }
 

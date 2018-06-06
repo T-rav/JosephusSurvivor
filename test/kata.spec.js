@@ -43,7 +43,8 @@ describe("SurvivorGame", function () {
 			// assert
 			expect(actual).toBe(3);
 		});
-		// NOTE: to be the last 2 test too way too much debugging for my liking.
+
+		// NOTE: from here to last test took way too much debugging for my liking.
 		// should have made learning test to better focus on what needs to be built
 		it("Given 7 persons wxith step size 3, expect 4th person survivor", function() {
 			// arrange
@@ -78,15 +79,15 @@ describe("SurvivorGame", function () {
 			expect(actual).toBe(3);
 		});
 
-		it("Given 5 persons with step size 4, expect 1st person survivor", function() {
+		it("Given 6 persons with step size 4, expect 1st person survivor", function() {
 			// arrange
-			let totalPeople = 5;
+			let totalPeople = 6;
 			let stepSize = 4;
 			let game = new SurvivorGame();
 			// act
 			let actual = game.play(totalPeople,stepSize);
 			// assert
-			expect(actual).toBe(1);
+			expect(actual).toBe(5);
 		});
 	});
 });
