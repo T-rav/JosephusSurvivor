@@ -1,10 +1,11 @@
 function SurvivorGame() {
   return{
     play:function(numberOfPeople, stepSize){
-      let circleOfPeople = buildCircleOfPeople(numberOfPeople);
+      const circleOfPeople = buildCircleOfPeople(numberOfPeople);
+      const gameStepSize = adjustStepSizeForZeroBasedIndexing(stepSize);
+
       let eliminationRounds = 1;
       let eliminationIndex = 0;
-      let gameStepSize = adjustStepSizeForZeroBasedIndexing(stepSize);
 
       while(moreRoundsToPlay(eliminationRounds, numberOfPeople)){
         eliminationIndex = calculateEliminationIndex(eliminationIndex, gameStepSize, circleOfPeople);
@@ -21,7 +22,7 @@ function SurvivorGame() {
   }
 
   function buildCircleOfPeople(numberOfPeople){
-    let result = [];
+    const result = [];
     
     for(var x = 1; x <= numberOfPeople; x++){
       result.push(x);
